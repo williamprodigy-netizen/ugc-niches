@@ -10,9 +10,9 @@ svc=build("sheets","v4",credentials=creds)
 SID=open("creators_sheet_url.txt").read().strip().split("/d/")[1].split("/")[0]
 vals=svc.spreadsheets().values().get(spreadsheetId=SID,range="Creators!A2:E100").execute().get("values",[])
 META={
- "beauty":{"title":"Beauty &amp; Fashion UGC","accent":"#db2777","eyebrow":"Beauty &amp; Fashion","lede":"Beauty and fashion brands pay real, relatable creators to make short phone videos. See the ones getting paid in this niche."},
- "lifestyle":{"title":"Travel, Lifestyle &amp; Wellness UGC","accent":"#0d9488","eyebrow":"Travel &middot; Lifestyle &middot; Wellness","lede":"Travel, lifestyle and wellness brands pay creators to show real life, real routines, real places. See who is getting paid here."},
- "tech":{"title":"Tech UGC","accent":"#2563eb","eyebrow":"AI Apps &amp; Software","lede":"Brands like Perplexity, Adobe and Cluely pay creators to make honest videos about their apps. No following needed. See the creators doing it."},
+ "beauty":{"starter":"the type of beauty/fashion video brands actually buy + a copy-paste pitch to send one","title":"Beauty &amp; Fashion UGC","accent":"#db2777","eyebrow":"Beauty &amp; Fashion","lede":"Beauty and fashion brands pay real, relatable creators to make short phone videos. See the ones getting paid in this niche."},
+ "lifestyle":{"starter":"the wellness/lifestyle video format brands pay for + the 'before I tried it' pitch angle","title":"Travel, Lifestyle &amp; Wellness UGC","accent":"#0d9488","eyebrow":"Travel &middot; Lifestyle &middot; Wellness","lede":"Travel, lifestyle and wellness brands pay creators to show real life, real routines, real places. See who is getting paid here."},
+ "tech":{"starter":"the AI-app demo video brands buy + the pitch that lands you a paid retainer","title":"Tech UGC","accent":"#2563eb","eyebrow":"AI Apps &amp; Software","lede":"Brands like Perplexity, Adobe and Cluely pay creators to make honest videos about their apps. No following needed. See the creators doing it."},
 }
 buckets={k:[] for k in META}
 for row in vals:

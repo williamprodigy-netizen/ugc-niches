@@ -3,15 +3,15 @@ CREATOR_ALL="https://ugc-world.com/creator"
 REG="https://ugc-world.com/registration"
 # per creator: name, portfolio, ig (handle no @), youtube  (priority: portfolio > ig > youtube)
 NICHES={
- "beauty":{"title":"Beauty &amp; Fashion UGC","accent":"#db2777","eyebrow":"Beauty &amp; Fashion",
+ "beauty":{"title":"Beauty &amp; Fashion UGC","accent":"#db2777","eyebrow":"Beauty &amp; Fashion","starter":"the type of beauty/fashion video brands actually buy + a copy-paste pitch to send one",
    "lede":"Beauty and fashion brands pay real, relatable creators to make short phone videos. See the ones getting paid in this niche.",
    "creators":[{"name":"[ creator name ]","portfolio":"","ig":"","youtube":""}]},
- "lifestyle":{"title":"Travel, Lifestyle &amp; Wellness UGC","accent":"#0d9488","eyebrow":"Travel &middot; Lifestyle &middot; Wellness",
+ "lifestyle":{"title":"Travel, Lifestyle &amp; Wellness UGC","accent":"#0d9488","eyebrow":"Travel &middot; Lifestyle &middot; Wellness","starter":"the wellness/lifestyle video format brands pay for + the 'before I tried it' pitch angle",
    "lede":"Travel, lifestyle and wellness brands pay creators to show real life, real routines, real places. See who is getting paid here.",
    "creators":[
      {"name":"Angela Recine","portfolio":"https://angelarecine.my.canva.site/","ig":"angelar.fit","youtube":"https://www.youtube.com/watch?v=RIo2zNt-7wE&t=5s"},
    ]},
- "tech":{"title":"Tech UGC","accent":"#2563eb","eyebrow":"AI Apps &amp; Software",
+ "tech":{"title":"Tech UGC","accent":"#2563eb","eyebrow":"AI Apps &amp; Software","starter":"the AI-app demo video brands buy + the pitch that lands you a paid retainer",
    "lede":"Brands like Perplexity, Adobe and Cluely pay creators to make honest videos about their apps. No following needed. See the creators doing it.",
    "creators":[
      {"name":"Andrea B","portfolio":"","ig":"ugcbyandreab","youtube":""},
@@ -44,6 +44,7 @@ h1{{font-size:36px;line-height:1.1;margin:10px 0 8px;letter-spacing:-.5px}}
 .lk.p{{background:{acc};color:#fff;border-color:{acc}}}
 .cta{{display:inline-block;background:{acc};color:#fff;font-weight:700;padding:14px 30px;border-radius:999px;text-decoration:none;font-size:16px}}
 .ctawrap{{text-align:center;padding:16px 22px 34px}}
+.starter{{max-width:640px;margin:14px auto 0;background:#f7f8fa;border:1px dashed {acc};border-radius:16px;padding:22px;text-align:center}} .stitle{{font-weight:800;font-size:18px;color:{acc};margin-bottom:6px}} .sbody{{color:#39424f;font-size:15px;margin-bottom:14px}} .mvpnote{{font-size:11px;color:#9aa3b0;margin-top:10px}}
 .foot{{text-align:center;color:#9aa3b0;font-size:12px;padding:26px;border-top:1px solid #eef0f3}}
 .lb{{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;z-index:9;padding:20px}}
 .lb.open{{display:flex}} .lb .box{{width:min(400px,92vw);aspect-ratio:9/16;background:#000;border-radius:14px;overflow:hidden;position:relative}}
@@ -56,6 +57,12 @@ h1{{font-size:36px;line-height:1.1;margin:10px 0 8px;letter-spacing:-.5px}}
 <div class="stat"><div class="n">$2.3M</div><div class="l">paid to creators last yr</div></div>
 <div class="stat"><div class="n">93</div><div class="l">verified creators</div></div></div>
 <div class="grid" id="grid"></div>
+<div class="starter">
+<div class="stitle">&#127873; Your free {n["title"]} starter</div>
+<div class="sbody">{n["starter"]}</div>
+<a class="cta" href="{REG}">Get it on the free class</a>
+<div class="mvpnote">[ MVP: this is the "lil starter" the SMS promises. Team drops the real 60-sec video / 1-page guide here, or it's delivered live on the class. ]</div>
+</div>
 <div class="ctawrap"><a class="cta" href="{CREATOR_ALL}">Look at other creators</a></div>
 <div class="foot">&copy; UGC World 2026 &middot; Real People &middot; Real Brands &middot; Real Money</div>
 <div class="lb" id="lb"><div><span class="x" onclick="closeLb()">&times;</span><div class="box" id="lbbox"></div></div></div>
@@ -66,7 +73,7 @@ const CREATORS = {data};
 function ytId(u){{const m=(u||'').match(/(?:v=|youtu\\.be\\/|embed\\/)([\\w-]{{11}}))/);return m?m[1]:null}}
 function card(c){{
   const yt=ytId(c.youtube); const has=(c.portfolio||c.ig||c.youtube);
-  const thumb = yt ? `<img src="https://i.ytimg.com/vi/${{yt}}/hqdefault.jpg">` : `<span class="ph">${{has?'view work':'+ add creator'}}</span>`;
+  const thumb = yt ? `<img src="https://i.ytimg.com/vi/${{yt}}/hqdefault.jpg">` : `<span class="ph">${{has?'&#9654; view their work':'+ add creator'}}</span>`;
   const badge = c.portfolio ? `<span class="badge">portfolio</span>` : '';
   const el=document.createElement('div'); el.className='card';
   // priority-ordered links
