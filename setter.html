@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Setter SMS Playbook — Niche Flow</title><style>
+<title>Setter SMS Playbook</title><style>
 *{box-sizing:border-box}body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0b0e14;color:#e6e9ef}
 .wrap{max-width:620px;margin:0 auto;padding:20px 16px 60px}
 h1{font-size:20px;margin:0 0 2px}.sub{color:#8b93a7;font-size:13px;margin-bottom:18px}
@@ -8,33 +8,32 @@ h1{font-size:20px;margin:0 0 2px}.sub{color:#8b93a7;font-size:13px;margin-bottom
 .msg{background:#0b1220;border:1px solid #22406a;border-radius:8px;padding:12px;font-size:15px;white-space:pre-wrap}
 .copy{margin-top:9px;width:100%;background:#2563eb;color:#fff;border:0;border-radius:8px;padding:11px;font-size:14px;font-weight:700;cursor:pointer}
 .copy:active{background:#1d4ed8}.copy.done{background:#16a34a}
-.route{display:flex;gap:8px;align-items:center;margin:10px 0;flex-wrap:wrap}
+.route{display:flex;gap:8px;align-items:center;margin:14px 0 8px;flex-wrap:wrap}
 .num{background:#2563eb;color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 auto}
-.rl{color:#6ea8ff;font-size:13px;word-break:break-all}
-.note{color:#8b93a7;font-size:12px;margin-top:6px}
+.note{color:#8b93a7;font-size:12px;margin-top:8px}
 </style></head><body><div class="wrap">
 <h1>Setter SMS Playbook</h1>
-<div class="sub">Niche flow. Send by hand this shift. Tap a box to copy.</div>
+<div class="sub">Personalized convo. No links. Send by hand. Tap a box to copy, swap [first name].</div>
 
-<div class="step"><div class="lbl">Step 1 — send the niche question</div>
-<div class="msg" id="m2">heyy [first name]! its gloria ✨ ok this is kinda crazy but our creators avg like $1.7k/m from just ONE brand on retainer.. n the ones killing it? they picked a niche they were already low key obsessed w lol. i wanna send u some example vids + a lil starter b4 class so it actually clicks for u 🤍 which feels most u: 1 beauty + fashion 2 travel, lifestyle + health/wellness 3 tech (ai apps + software). just lmk ur number x</div>
+<div class="step"><div class="lbl">Step 1 — send the question</div>
+<div class="msg" id="m2">heyy [first name]! its gloria ✨ ok this is kinda crazy but our creators avg like $1.7k/m from just ONE brand on retainer.. n the ones killing it? they picked a niche they were already low key obsessed w lol. quick q so i know how to help u b4 class... which feels most u: 1 beauty + fashion 2 travel, lifestyle + health/wellness 3 tech (ai apps + software). just lmk ur number x</div>
 <button class="copy" data-t="m2">Copy Step 1</button></div>
 
 <div class="step"><div class="lbl">Step 2 — if no reply, nudge</div>
-<div class="msg" id="m3">heyy [first name]! no stress if ur swamped 🤍 even just a 1, 2 or 3 helps me send u the right examples b4 class: 1 beauty + fashion 2 travel, lifestyle + wellness 3 tech (ai apps). n if none fit just tell me what ur into x</div>
+<div class="msg" id="m3">heyy [first name]! no stress if ur swamped 🤍 even just a 1, 2 or 3 helps me point u the right way b4 class: 1 beauty + fashion 2 travel, lifestyle + wellness 3 tech (ai apps). n if none fit just tell me what ur into x</div>
 <button class="copy" data-t="m3">Copy Step 2</button></div>
 
-<div class="step"><div class="lbl">Step 3 — they reply a number, send the link</div>
+<div class="step"><div class="lbl">Step 3 — they reply a number, send back</div>
 <div class="route"><span class="num">1</span><b>Beauty + Fashion</b></div>
-<div class="msg" id="r1">amazing 🤍 heres some of our creators killing it in beauty + fashion: https://williamprodigy-netizen.github.io/ugc-niches/beauty.html — n the free class is where i show how to actually land these. u still comin?</div>
+<div class="msg" id="r1">omg love that 🤍 beauty + fashion is honestly one of the easiest lanes to start bc u already know the products u love. i break down exactly how our creators land those deals on the free class. u still comin?</div>
 <button class="copy" data-t="r1">Copy reply 1 (beauty)</button>
-<div class="route" style="margin-top:16px"><span class="num">2</span><b>Travel / Lifestyle / Wellness</b></div>
-<div class="msg" id="r2">love that 🤍 heres our travel + lifestyle + wellness creators: https://williamprodigy-netizen.github.io/ugc-niches/lifestyle.html — the class is where i break down how they got there. u still in?</div>
+<div class="route"><span class="num">2</span><b>Travel / Lifestyle / Wellness</b></div>
+<div class="msg" id="r2">yesss travel + lifestyle + wellness is such a fun one, brands basically pay u to show ur real life n routines. thats exactly what i walk thru live. u still in for the class?</div>
 <button class="copy" data-t="r2">Copy reply 2 (lifestyle)</button>
-<div class="route" style="margin-top:16px"><span class="num">3</span><b>Tech (AI apps + software)</b></div>
-<div class="msg" id="r3">omg my fav lol 🤍 heres our tech creators getting paid by ai apps: https://williamprodigy-netizen.github.io/ugc-niches/tech.html — i show exactly how on the free class. u still comin?</div>
+<div class="route"><span class="num">3</span><b>Tech (AI apps + software)</b></div>
+<div class="msg" id="r3">omg my fav 🤍 tech + ai brands are paying the most rn n barely anyone's doing it, so ur actually early. i show exactly how our creators get these on the class. u still comin?</div>
 <button class="copy" data-t="r3">Copy reply 3 (tech)</button>
-<div class="note">Only run this on leads who did NOT reply YES already and did NOT fill the Typeform.</div></div>
+<div class="note">Then keep the convo going and lock in that they'll show up live. Only run on leads who did NOT already reply YES and did NOT fill the Typeform.</div></div>
 
 </div><script>
 document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
