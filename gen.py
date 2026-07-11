@@ -13,7 +13,9 @@ NICHES={
    ]},
  "tech":{"title":"Tech UGC","accent":"#2563eb","eyebrow":"AI Apps &amp; Software",
    "lede":"Brands like Perplexity, Adobe and Cluely pay creators to make honest videos about their apps. No following needed. See the creators doing it.",
-   "creators":[{"name":"[ creator name ]","portfolio":"","ig":"","youtube":""}]},
+   "creators":[
+     {"name":"Andrea B","portfolio":"","ig":"ugcbyandreab","youtube":""},
+   ]},
 }
 def page(slug,n):
     acc=n["accent"]; data=json.dumps(n["creators"])
