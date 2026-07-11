@@ -70,7 +70,7 @@ h1{{font-size:36px;line-height:1.1;margin:10px 0 8px;letter-spacing:-.5px}}
 /* ====== EDIT THIS LIST: 5-10 creators for this niche. Priority: portfolio > ig > youtube ====== */
 const CREATORS = {data};
 /* ============================================================================================= */
-function ytId(u){{const m=(u||'').match(/(?:v=|youtu\\.be\\/|embed\\/)([\\w-]{{11}}))/);return m?m[1]:null}}
+function ytId(u){{const m=(u||'').match(/(?:v=|youtu\\.be\\/|embed\\/)([\\w-]{{11}})/);return m?m[1]:null}}
 function card(c){{
   const yt=ytId(c.youtube); const has=(c.portfolio||c.ig||c.youtube);
   const thumb = yt ? `<img src="https://i.ytimg.com/vi/${{yt}}/hqdefault.jpg">` : `<span class="ph">${{has?'&#9654; view their work':'+ add creator'}}</span>`;
