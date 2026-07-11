@@ -16,7 +16,7 @@ h1{font-size:36px;line-height:1.1;margin:10px 0 8px;letter-spacing:-.5px}
 .tile img{width:100%;height:100%;object-fit:cover}
 .tile .badge{position:absolute;bottom:9px;left:9px;background:#ffffffe6;color:#db2777;font-weight:700;font-size:11px;padding:3px 9px;border-radius:999px}
 .ph{color:#fff9;font-weight:700;font-size:13px}
-.meta{padding:11px 12px 13px} .cname{font-weight:700;margin-bottom:7px}
+.meta{padding:11px 12px 13px} .cname{font-weight:700;margin-bottom:3px} .hint{font-size:11px;color:#8b93a7;margin-bottom:7px}
 .links{display:flex;flex-wrap:wrap;gap:6px}
 .lk{font-size:12px;font-weight:700;text-decoration:none;padding:5px 10px;border-radius:999px;border:1px solid #e5e7eb;color:#39424f}
 .lk.p{background:#db2777;color:#fff;border-color:#db2777}
@@ -52,7 +52,8 @@ function card(c){
   if(c.portfolio) lks+=`<a class="lk p" href="${c.portfolio}" target="_blank">Portfolio</a>`;
   if(c.ig) lks+=`<a class="lk" href="https://instagram.com/${c.ig}" target="_blank">@${c.ig}</a>`;
   if(c.youtube) lks+=`<a class="lk" href="#" onclick="openLb('${c.youtube}');return false">Podcast</a>`;
-  el.innerHTML=`<div class="tile">${thumb}${badge}</div><div class="meta"><div class="cname">${c.name||''}</div><div class="links">${lks}</div></div>`;
+  const hint=(!c.portfolio && c.ig)?`<div class="hint">portfolio in bio</div>`:'';
+  el.innerHTML=`<div class="tile">${thumb}${badge}</div><div class="meta"><div class="cname">${c.name||''}</div>${hint}<div class="links">${lks}</div></div>`;
   // tile click = highest-priority link
   const tile=el.querySelector('.tile');
   if(c.portfolio) tile.onclick=()=>window.open(c.portfolio,'_blank');
