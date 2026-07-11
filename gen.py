@@ -1,32 +1,22 @@
 import json
 CREATOR_ALL="https://ugc-world.com/creator"
 REG="https://ugc-world.com/registration"
+# per creator: name, portfolio, ig (handle no @), youtube  (priority: portfolio > ig > youtube)
 NICHES={
  "beauty":{"title":"Beauty &amp; Fashion UGC","accent":"#db2777","eyebrow":"Beauty &amp; Fashion",
    "lede":"Beauty and fashion brands pay real, relatable creators to make short phone videos. See the ones getting paid in this niche.",
-   "videos":[
-     {"url":"https://www.youtube.com/watch?v=REPLACE","name":"[ creator name ]","ig":"creatorhandle"},
-     {"url":"","name":"[ creator name ]","ig":"creatorhandle"},
-     {"url":"","name":"[ creator name ]","ig":"creatorhandle"},
-   ]},
+   "creators":[{"name":"[ creator name ]","portfolio":"","ig":"","youtube":""}]},
  "lifestyle":{"title":"Travel, Lifestyle &amp; Wellness UGC","accent":"#0d9488","eyebrow":"Travel &middot; Lifestyle &middot; Wellness",
    "lede":"Travel, lifestyle and wellness brands pay creators to show real life, real routines, real places. See who is getting paid here.",
-   "videos":[
-     {"url":"https://www.youtube.com/watch?v=REPLACE","name":"Sofia Austen","ig":"sofiaausten"},
-     {"url":"","name":"[ creator name ]","ig":"creatorhandle"},
-     {"url":"","name":"[ creator name ]","ig":"creatorhandle"},
+   "creators":[
+     {"name":"Angela Recine","portfolio":"https://angelarecine.my.canva.site/","ig":"angelar.fit","youtube":"https://www.youtube.com/watch?v=RIo2zNt-7wE&t=5s"},
    ]},
  "tech":{"title":"Tech UGC","accent":"#2563eb","eyebrow":"AI Apps &amp; Software",
    "lede":"Brands like Perplexity, Adobe and Cluely pay creators to make honest videos about their apps. No following needed. See the creators doing it.",
-   "videos":[
-     {"url":"https://www.youtube.com/watch?v=REPLACE","name":"Joe Staples","ig":"joestaples"},
-     {"url":"","name":"[ creator name ]","ig":"creatorhandle"},
-     {"url":"","name":"[ creator name ]","ig":"creatorhandle"},
-   ]},
+   "creators":[{"name":"[ creator name ]","portfolio":"","ig":"","youtube":""}]},
 }
 def page(slug,n):
-    acc=n["accent"]
-    vids=json.dumps(n["videos"])
+    acc=n["accent"]; data=json.dumps(n["creators"])
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{n["title"]} — UGC World</title><style>
 *{{box-sizing:border-box}} body{{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;color:#0f1419;background:#fff}}
@@ -35,20 +25,20 @@ def page(slug,n):
 .hero{{text-align:center;padding:40px 22px 8px;max-width:760px;margin:0 auto}}
 .eyebrow{{color:{acc};font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:12px}}
 h1{{font-size:36px;line-height:1.1;margin:10px 0 8px;letter-spacing:-.5px}}
-.tag{{color:#5b6472;font-weight:600;font-size:13px;letter-spacing:.3px}}
-.lede{{color:#39424f;font-size:16px;max-width:600px;margin:14px auto 0}}
+.tag{{color:#5b6472;font-weight:600;font-size:13px}} .lede{{color:#39424f;font-size:16px;max-width:600px;margin:14px auto 0}}
 .stats{{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:22px}}
 .stat{{background:#f7f8fa;border:1px solid #eef0f3;border-radius:12px;padding:12px 18px}}
 .stat .n{{font-size:23px;font-weight:800;color:{acc}}} .stat .l{{font-size:11px;color:#6b7280;margin-top:2px}}
-.grid{{max-width:1000px;margin:0 auto;padding:6px 20px 10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px}}
-.card{{border:1px solid #eef0f3;border-radius:14px;overflow:hidden;background:#fff;cursor:pointer;transition:.15s}}
-.card:hover{{transform:translateY(-3px);box-shadow:0 8px 24px #0f14191a}}
-.thumb{{aspect-ratio:9/13;background:linear-gradient(135deg,{acc},#0f1419);position:relative;display:flex;align-items:center;justify-content:center}}
-.thumb img{{width:100%;height:100%;object-fit:cover}}
-.play{{position:absolute;width:46px;height:46px;border-radius:50%;background:#ffffffe6;display:flex;align-items:center;justify-content:center}}
-.play::after{{content:"";border-left:15px solid {acc};border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}}
+.grid{{max-width:1000px;margin:0 auto;padding:6px 20px 10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}}
+.card{{border:1px solid #eef0f3;border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}}
+.tile{{aspect-ratio:9/12;background:linear-gradient(135deg,{acc},#0f1419);position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer}}
+.tile img{{width:100%;height:100%;object-fit:cover}}
+.tile .badge{{position:absolute;bottom:9px;left:9px;background:#ffffffe6;color:{acc};font-weight:700;font-size:11px;padding:3px 9px;border-radius:999px}}
 .ph{{color:#fff9;font-weight:700;font-size:13px}}
-.meta{{padding:10px 12px}} .cname{{font-weight:700}} .ig{{color:{acc};font-size:13px;text-decoration:none}}
+.meta{{padding:11px 12px 13px}} .cname{{font-weight:700;margin-bottom:7px}}
+.links{{display:flex;flex-wrap:wrap;gap:6px}}
+.lk{{font-size:12px;font-weight:700;text-decoration:none;padding:5px 10px;border-radius:999px;border:1px solid #e5e7eb;color:#39424f}}
+.lk.p{{background:{acc};color:#fff;border-color:{acc}}}
 .cta{{display:inline-block;background:{acc};color:#fff;font-weight:700;padding:14px 30px;border-radius:999px;text-decoration:none;font-size:16px}}
 .ctawrap{{text-align:center;padding:16px 22px 34px}}
 .foot{{text-align:center;color:#9aa3b0;font-size:12px;padding:26px;border-top:1px solid #eef0f3}}
@@ -67,33 +57,34 @@ h1{{font-size:36px;line-height:1.1;margin:10px 0 8px;letter-spacing:-.5px}}
 <div class="foot">&copy; UGC World 2026 &middot; Real People &middot; Real Brands &middot; Real Money</div>
 <div class="lb" id="lb"><div><span class="x" onclick="closeLb()">&times;</span><div class="box" id="lbbox"></div></div></div>
 <script>
-/* ====== EDIT THIS LIST: 5-10 videos for this niche. url = YouTube link, name = creator, ig = handle (no @) ====== */
-const VIDEOS = {vids};
-/* =============================================================================================== */
+/* ====== EDIT THIS LIST: 5-10 creators for this niche. Priority: portfolio > ig > youtube ====== */
+const CREATORS = {data};
+/* ============================================================================================= */
 function ytId(u){{const m=(u||'').match(/(?:v=|youtu\\.be\\/|embed\\/)([\\w-]{{11}}))/);return m?m[1]:null}}
-function card(v){{
-  const id=ytId(v.url); const has=!!v.url && v.url.indexOf('REPLACE')<0;
-  const thumb = id ? `<img src="https://i.ytimg.com/vi/${{id}}/hqdefault.jpg">` : `<span class="ph">+ add video</span>`;
-  const play = has ? `<span class="play"></span>` : '';
-  const ig = v.ig ? `<a class="ig" href="https://instagram.com/${{v.ig}}" target="_blank" onclick="event.stopPropagation()">@${{v.ig}}</a>` : '';
+function card(c){{
+  const yt=ytId(c.youtube); const has=(c.portfolio||c.ig||c.youtube);
+  const thumb = yt ? `<img src="https://i.ytimg.com/vi/${{yt}}/hqdefault.jpg">` : `<span class="ph">${{has?'view work':'+ add creator'}}</span>`;
+  const badge = c.portfolio ? `<span class="badge">portfolio</span>` : '';
   const el=document.createElement('div'); el.className='card';
-  el.innerHTML=`<div class="thumb">${{thumb}}${{play}}</div><div class="meta"><div class="cname">${{v.name||''}}</div>${{ig}}</div>`;
-  if(has) el.onclick=()=>openLb(v.url,id);
+  // priority-ordered links
+  let lks='';
+  if(c.portfolio) lks+=`<a class="lk p" href="${{c.portfolio}}" target="_blank">Portfolio</a>`;
+  if(c.ig) lks+=`<a class="lk" href="https://instagram.com/${{c.ig}}" target="_blank">@${{c.ig}}</a>`;
+  if(c.youtube) lks+=`<a class="lk" href="#" onclick="openLb('${{c.youtube}}');return false">Podcast</a>`;
+  el.innerHTML=`<div class="tile">${{thumb}}${{badge}}</div><div class="meta"><div class="cname">${{c.name||''}}</div><div class="links">${{lks}}</div></div>`;
+  // tile click = highest-priority link
+  const tile=el.querySelector('.tile');
+  if(c.portfolio) tile.onclick=()=>window.open(c.portfolio,'_blank');
+  else if(c.youtube) tile.onclick=()=>openLb(c.youtube);
+  else if(c.ig) tile.onclick=()=>window.open('https://instagram.com/'+c.ig,'_blank');
   return el;
 }}
-function openLb(url,id){{const box=document.getElementById('lbbox');
-  box.innerHTML = id ? `<iframe src="https://www.youtube.com/embed/${{id}}?autoplay=1&playsinline=1" allow="autoplay" allowfullscreen></iframe>` : '';
-  if(!id){{window.open(url,'_blank');return}} document.getElementById('lb').classList.add('open');}}
+function openLb(url){{const yt=ytId(url); if(!yt){{window.open(url,'_blank');return}}
+  document.getElementById('lbbox').innerHTML=`<iframe src="https://www.youtube.com/embed/${{yt}}?autoplay=1&playsinline=1" allow="autoplay" allowfullscreen></iframe>`;
+  document.getElementById('lb').classList.add('open');}}
 function closeLb(){{document.getElementById('lb').classList.remove('open');document.getElementById('lbbox').innerHTML=''}}
 document.getElementById('lb').onclick=e=>{{if(e.target.id==='lb')closeLb()}};
-const g=document.getElementById('grid'); VIDEOS.forEach(v=>g.appendChild(card(v)));
+const g=document.getElementById('grid'); CREATORS.forEach(c=>g.appendChild(card(c)));
 </script></body></html>'''
 for slug,n in NICHES.items():
-    open(f"{slug}.html","w").write(page(slug,n))
-    print("wrote",slug+".html")
-# hub index
-open("index.html","w").write('''<!doctype html><meta charset="utf-8"><title>UGC World — Niche Samples</title>
-<body style="font-family:-apple-system,sans-serif;text-align:center;padding:60px 20px">
-<h1>UGC World — Niche Sample Pages</h1>
-<p><a href="beauty.html">Beauty &amp; Fashion</a> &middot; <a href="lifestyle.html">Travel, Lifestyle &amp; Wellness</a> &middot; <a href="tech.html">Tech</a></p></body>''')
-print("wrote index.html")
+    open(f"{slug}.html","w").write(page(slug,n)); print("wrote",slug+".html")
