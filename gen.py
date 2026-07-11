@@ -88,7 +88,10 @@ function openLb(url){{const yt=ytId(url); if(!yt){{window.open(url,'_blank');ret
   document.getElementById('lb').classList.add('open');}}
 function closeLb(){{document.getElementById('lb').classList.remove('open');document.getElementById('lbbox').innerHTML=''}}
 document.getElementById('lb').onclick=e=>{{if(e.target.id==='lb')closeLb()}};
-const g=document.getElementById('grid'); CREATORS.forEach(c=>g.appendChild(card(c)));
+const g=document.getElementById('grid');
+const real=CREATORS.filter(c=>c.name && c.name.indexOf('[')<0 && (c.ig||c.portfolio||c.youtube));
+if(real.length){{ real.forEach(c=>g.appendChild(card(c))); }}
+else {{ g.style.display='block'; g.innerHTML='<div style=\"text-align:center;color:#6b7280;padding:30px 10px\">New creators in this niche are added every week. Watch the free class to meet them live.</div>'; }}
 </script></body></html>'''
 for slug,n in NICHES.items():
     open(f"{slug}.html","w").write(page(slug,n)); print("wrote",slug+".html")
