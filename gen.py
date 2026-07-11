@@ -15,6 +15,7 @@ NICHES={
    "lede":"Brands like Perplexity, Adobe and Cluely pay creators to make honest videos about their apps. No following needed. See the creators doing it.",
    "creators":[
      {"name":"Andrea B","portfolio":"","ig":"ugcbyandreab","youtube":""},
+     {"name":"Stacy Parks","portfolio":"","ig":"stacyparks.ugc","youtube":""},
    ]},
 }
 def page(slug,n):
